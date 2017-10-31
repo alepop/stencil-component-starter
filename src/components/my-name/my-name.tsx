@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import { SomeBase } from '../../utils';
+import { SomeBase } from '../../utils/some-base';
 
 @Component({
   tag: 'my-name',
