@@ -28,9 +28,40 @@ declare global {
   }
   namespace JSXElements {
       export interface MyNameAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
-          first?: any,
-          last?: any
+          first?: string,
+          last?: string
+      }
+  }
+}
+
+import { SomeBase as SomeBase } from './utils/some-base';
+
+interface HTMLSomeBaseElement extends SomeBase, HTMLElement {
+}
+declare var HTMLSomeBaseElement: {
+  prototype: HTMLSomeBaseElement;
+  new (): HTMLSomeBaseElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "some-base": HTMLSomeBaseElement;
+  }
+  interface ElementTagNameMap {
+      "some-base": HTMLSomeBaseElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "some-base": JSXElements.SomeBaseAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface SomeBaseAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
       }
   }
 }
